@@ -592,6 +592,7 @@ class TextToSpeech:
         text,
         voice_samples=None,
         conditioning_latents=None,
+        auto_conds=None,
         k=1,
         verbose=True,
         use_deterministic_seed=None,
@@ -675,7 +676,6 @@ class TextToSpeech:
             text_tokens.shape[-1] < 400
         ), "Too much text provided. Break the text up into separate segments and re-try inference."
 
-        auto_conds = None
         if voice_samples is not None:
             (
                 auto_conditioning,
